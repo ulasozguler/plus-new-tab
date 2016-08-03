@@ -1,24 +1,6 @@
 <head>
 <title>&#65279;</title>
-<style>
-* { font-family: tahoma; color: black; font-size: 12px; }
-body { background-color: #e4e4e3; background-image: url('1.jpg'); background-position: 50% 50%; background-repeat: no-repeat; }
-a { cursor: pointer; text-decoration: none; }
-#actions { border: 1px dotted black; padding: 10px; position: absolute; bottom: 10px; right: 10px; }
-#linksArea { padding: 10px; overflow: auto; margin: 0px auto; }
-#linksArea a { float: left; margin: 0px 15px 15px 0px; }
-#linksArea a div.linkContainer { background: -webkit-radial-gradient(center, #2778ba 0%, #0d293f 100%); color: #ffffff; width: 200px; height: 100px; border: 0px dotted #01040b; display: table-cell; text-align: center; vertical-align: middle; position: relative; border-radius: 15px; font-size: 16px; box-shadow: 0px 0px 15px 1px #000000; opacity: 0.99; }
-#linksArea a div.linkContainer:hover { background: -webkit-radial-gradient(center, #2778ba 0%, #0d293f 120%); color: white; }
-
-.actionLinks { position: absolute; bottom: 0px; right: 14px; display: block; }
-.actionLinks a { padding: 2px 5px; margin: 0px 5px 0px 0px !important; border-top-left-radius: 5px; border-top-right-radius: 5px; border: 1px dotted gray; border-bottom: 0px; }
-.actionLinks a:hover { background-color: #e4e4e3; }
-.editLinks { color: #8f8f10; display: none; }
-.deleteLinks { color: #710000; display: none; }
-
-#action { border: 1px dotted black; padding: 10px; display: none; position: absolute; bottom: 10px; left: 10px; background-color: #e4e4e3; }
-#actionForm { margin: 0px; }
-</style>
+<link rel="stylesheet" type="text/css" href="main.css">
 <!-- #d2d2d0; -->
 </head>
 <body>
@@ -32,10 +14,11 @@ a { cursor: pointer; text-decoration: none; }
 	<form id="actionForm">
 		<input type="text" id="name">
 		<input type="text" id="link">
-		<input type="hidden" id="orgName">
+		<input type="hidden" id="id">
 		<input type="submit" value="OK">
 	</form>
 </div>
 
-<script type="text/javascript" src="newtab.js"></script>
+<script type="text/javascript" src="dataManager.js"></script>
+<script type="text/javascript" src="main.js"></script>
 </body>
