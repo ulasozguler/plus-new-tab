@@ -57,6 +57,10 @@ document.getElementById("actionForm").addEventListener("submit", function (e) {
 	return false
 }, false)
 
+document.getElementById("settings").addEventListener("click", function () {
+	chrome.runtime.openOptionsPage()
+}, false)
+
 
 function editLinkForm(obj) {
 	var id = obj.getAttribute('data-id')
@@ -116,9 +120,10 @@ function init() {
 	// load theme
 	var theme = themes[localStorage['theme'] || 'bluegrey']
 	document.getElementById('themeStyles').innerHTML = "" +
-		"* { color: " + theme["300"] + "; } " +
-		"body { background: " + theme["800"] + "; } " +
-		".card { background: " + theme["700"] + "; } " +
+		"* { color: " + theme['300'] + "; } " +
+		"a:hover, .linkContainer:hover { color: " + theme['100'] + "; } " +
+		"body { background: " + theme['800'] + "; } " +
+		".card { background: " + theme['700'] + "; } " +
 		"#linksArea a { margin: " + localStorage['cardMargin'] + "} " +
 		"#linksArea a div.linkContainer { width: " + localStorage['cardWidth'] + " }"
 

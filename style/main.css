@@ -21,11 +21,27 @@ a {
 }
 
 #actions {
-	border: 1px dotted black;
-	padding: 5px 10px;
 	position: absolute;
-	bottom: 10px;
+	bottom: 15px;
 	right: 10px;
+}
+
+#actions a#addLink {
+	border: 1px solid;
+	border-radius: 15px;
+	padding: 5px 10px;
+}
+
+#actions a#settings {
+	position: absolute;
+	right: 35px;
+	bottom: -4px;
+	margin-right: 15px;
+	opacity: 0.6;
+}
+
+#actions a#settings:hover {
+	opacity: 1.0;
 }
 
 #linksArea {
