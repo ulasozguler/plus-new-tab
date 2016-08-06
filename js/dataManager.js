@@ -7,7 +7,7 @@ class DataManager {
 
 	loadDb() {
 		if(!localStorage[this.app_id]) {
-			this.saveDb();
+			this.saveDb()
 		}
 		this.data = eval('(' + localStorage[this.app_id] + ')')
 	}
@@ -16,47 +16,46 @@ class DataManager {
 		localStorage[this.app_id] = JSON.stringify(this.data)
 	}
 
-	generateId() {
+	static generateId() {
 		return Date.now()
 	}
 
 	find(id) {
-		return this.data.find(o => o.id == id);
+		return this.data.find(o => o.id == id)
 	}
 
 	findIndex(id) {
 		for(var i = 0; i < this.data.length; i++) {
 			if(this.data[i].id == id) {
-				return i;
+				return i
 			}
 		}
-		return null;
+		return null
 	}
 
 	upsert(o) {
-		console.log(o);
 		if(o.id) {
-			var id = this.findIndex(o.id);
+			var id = this.findIndex(o.id)
 			if(id === null) {
-				o.id = this.generateId();
+				o.id = this.generateId()
 				this.data.push(o)
 			} else {
-				this.data[id] = o;
+				this.data[id] = o
 			}
 		} else {
-			o.id = this.generateId();
+			o.id = this.generateId()
 			this.data.push(o)
 		}
 		this.saveDb()
 	}
 
-	delete(id) {
+	remove(id) {
 		this.data = this.data.filter(o => o.id != id)
 		this.saveDb()
 	}
 
 	list() {
-		return this.data;
+		return this.data
 	}
 	
 }
