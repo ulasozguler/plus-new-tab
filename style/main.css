@@ -2,13 +2,12 @@
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	color: black;
-	/*color: #E0E0E0;*/
 }
 
 body {
 	background-color: #e4e4e3;
-	/*background-color: #212121;*/
 	text-align: center;
+	margin: 0 18px;
 }
 
 a {
@@ -30,7 +29,7 @@ a {
 }
 
 #linksArea {
-	padding: 10px;
+	padding: 18px 0px 0px;
 	overflow: auto;
 	margin: 0 auto;
 }
@@ -43,9 +42,7 @@ a {
 #linksArea a div.linkContainer {
 	width: 200px;
 	height: 100px;
-	/*background: #424242;*/
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-	/*box-shadow: 0 0px 0px 0 rgba(255,255,255,.14), 0 3px 1px -2px rgba(255,255,255,.2), 0 1px 5px 0 rgba(255,255,255,.12);*/
 	display: table-cell;
 	vertical-align: middle;
 }

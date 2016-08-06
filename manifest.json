@@ -1,11 +1,17 @@
 {
-	"manifest_version": 2,
-	"name": "Special New Tab",
-	"description": "A customized new tab page.",
-	"version": "0.1",
-	"permissions": ["management"],
-	"chrome_url_overrides": {
-		"newtab": "newtab.html"
-	},
-	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  "manifest_version": 2,
+  "name": "Special New Tab",
+  "description": "A customized new tab page.",
+  "version": "0.1",
+  "permissions": [
+    "management"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

@@ -85,23 +85,44 @@ function list() {
 		size++
 	}
 
-	var cardWidth = localStorage['cardWidth'] || 215
-	var cardPadding = localStorage['cardPadding'] || 7
-	var colCount = localStorage['colCount'] || 4
-	var fitWidth = localStorage['fitWidth'] || false
+	var optionDefaults = {};
+	for(var opt of options) {
+		optionDefaults[opt.name] = opt.default
+	}
+
+	var cardWidth = localStorage['cardWidth'] || optionDefaults['cardWidth']
+	var cardMargin = localStorage['cardMargin'] || optionDefaults['cardMargin']
+	var colCount = localStorage['colCount'] || optionDefaults['colCount']
+	var fitWidth = localStorage['fitWidth'] === "true" || optionDefaults['fitWidth']
+
+	var cardTotalWidth = cardWidth + (cardMargin * 2)
+	var errorMargin = 10
 
 	if (fitWidth === true) {
-		if ((size * cardWidth) < document.body.clientWidth)
-			mainArea.style.width = (size * cardWidth) + 'px'
-		else
-			mainArea.style.width = document.body.clientWidth + 'px'
+		if (size * cardTotalWidth < document.body.clientWidth) {
+			mainArea.style.width = (size * cardTotalWidth) + 'px'
+		} else {
+			mainArea.style.width = (Math.floor(document.body.clientWidth / (cardTotalWidth + errorMargin)) * cardTotalWidth) + 'px'
+		}
 	} else {
-		mainArea.style.width = colCount * cardWidth
+		mainArea.style.width = (colCount * cardTotalWidth) + 'px'
 	}
 
 	addEventHandlerToClass('editLinks', 'click', editLinkForm)
 	addEventHandlerToClass('deleteLinks', 'click', deleteLinkForm)
 }
 
+function init() {
+	// load theme
+	var theme = themes[localStorage['theme'] || 'bluegrey']
+	document.getElementById('themeStyles').innerHTML = "" +
+		"* { color: " + theme["300"] + "; } " +
+		"body { background: " + theme["800"] + "; } " +
+		".card { background: " + theme["700"] + "; } " +
+		"#linksArea a { margin: " + localStorage['cardMargin'] + "} " +
+		"#linksArea a div.linkContainer { width: " + localStorage['cardWidth'] + " }"
 
-window.onload = list
+	// list
+	list()
+}
+window.onload = init
