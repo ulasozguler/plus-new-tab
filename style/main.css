@@ -18,6 +18,7 @@ a {
 
 .card {
 	position: relative;
+	background: #fff;
 }
 
 #actions {
@@ -42,7 +43,6 @@ a {
 #linksArea a div.linkContainer {
 	width: 200px;
 	height: 100px;
-	background: #fff;
 	/*background: #424242;*/
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 	/*box-shadow: 0 0px 0px 0 rgba(255,255,255,.14), 0 3px 1px -2px rgba(255,255,255,.2), 0 1px 5px 0 rgba(255,255,255,.12);*/
@@ -64,14 +64,15 @@ a {
 .actionLinks a {
 	padding: 2px 5px;
 	margin: 0 !important;
-	width: 7px;
+	width: 8px;
 	height: 14px;
-	opacity: 0.5;
+	opacity: 0.2;
+	background-color: #f4f4f3;
 }
 
 .actionLinks a:hover {
 	background-color: #e4e4e3;
-
+	opacity: 0.9;
 }
 
 .editLinks {
