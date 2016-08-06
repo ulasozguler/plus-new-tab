@@ -90,21 +90,15 @@ function list() {
 		var a = document.createElement('a');
 		a.href = o.link;
 		var html = `
-			<div class='linkContainer'>` + o.name + `
-				<div class='actionLinks'>
-					<a href='#' title='Edit' class='editLinks' id='`+ o.id + `'>E</a>
-					<a href='#' title='Delete' class='deleteLinks' id='` + o.id + `'>D</a>
-				</div>
+			<div class="card">
+			<div class='linkContainer'>` + o.name + `</div>
+			<div class='actionLinks'>
+				<a href='#' title='Edit' class='editLinks' id='`+ o.id + `'></a>
+				<a href='#' title='Delete' class='deleteLinks' id='` + o.id + `'></a>
+			</div>
 			</div>
 		`;
-		/*
-		var html = "<div class='linkContainer'>" + o.name;
-		html += "<div class='actionLinks'>";
-		html += "<a href='#' title='Edit' class='editLinks' id='" + o.id + "'>E</a>";
-		html += "<a href='#' title='Delete' class='deleteLinks' id='" + o.id + "'>D</a>";
-		html += "</div>";
-		html += "</div>";
-		*/
+
 		a.innerHTML = html;
 		mainArea.appendChild(a);
 		size++;
@@ -121,8 +115,8 @@ function list() {
 		mainArea.style.width = localStorage['colCount'] * colWidth;
 	}
 
-	addEventHandlerToClass('linkContainer', 'mouseover', showOptions);
-	addEventHandlerToClass('linkContainer', 'mouseout', hideOptions);
+	addEventHandlerToClass('card', 'mouseover', showOptions);
+	addEventHandlerToClass('card', 'mouseout', hideOptions);
 	addEventHandlerToClass('editLinks', 'click', editLinkForm);
 	addEventHandlerToClass('deleteLinks', 'click', deleteLinkForm);
 }
