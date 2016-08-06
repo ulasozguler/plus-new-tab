@@ -57,6 +57,10 @@ a {
 	display: none;
 }
 
+#linksArea a:hover .actionLinks {
+	display: block;
+}
+
 .actionLinks a {
 	padding: 2px 5px;
 	margin: 0 !important;

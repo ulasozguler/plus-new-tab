@@ -73,16 +73,6 @@ function deleteLinkForm(obj) {
 	}
 }
 
-
-function showOptions(cell) {
-	cell.getElementsByClassName('actionLinks')[0].style.display = 'block';
-}
-
-function hideOptions(cell) {
-	cell.getElementsByClassName('actionLinks')[0].style.display = 'none';
-}
-
-
 function list() {
 	var size = 0;
 	mainArea.innerHTML = '';
@@ -115,8 +105,6 @@ function list() {
 		mainArea.style.width = localStorage['colCount'] * colWidth;
 	}
 
-	addEventHandlerToClass('card', 'mouseover', showOptions);
-	addEventHandlerToClass('card', 'mouseout', hideOptions);
 	addEventHandlerToClass('editLinks', 'click', editLinkForm);
 	addEventHandlerToClass('deleteLinks', 'click', deleteLinkForm);
 }
