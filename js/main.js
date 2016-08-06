@@ -35,7 +35,7 @@ function getForm() {
 }
 
 function setForm(o = {}) {
-	idInput.value = o.id || DataManager.generateId()
+	idInput.value = o.id || manager.generateId()
 	nameInput.value = o.name || ''
 	linkInput.value = o.link || 'http://'
 }

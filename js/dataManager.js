@@ -16,7 +16,7 @@ class DataManager {
 		localStorage[this.app_id] = JSON.stringify(this.data)
 	}
 
-	static generateId() {
+	generateId() {
 		return Date.now()
 	}
 
