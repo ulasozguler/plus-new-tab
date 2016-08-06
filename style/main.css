@@ -36,7 +36,7 @@ a {
 
 #linksArea a {
 	float: left;
-	margin: 0 15px 15px 0;
+	margin: 7px;
 }
 
 #linksArea a div.linkContainer {

@@ -5,7 +5,19 @@
 
 </head>
 <body>
-<div id="linksArea"></div>
+<div id="linksArea">
+
+    <script id="cardTemplate" type="x-template">
+        <div class="card">
+            <div class='linkContainer'>{name}</div>
+            <div class='actionLinks'>
+                <a href='#' title='Edit' class='editLinks' data-id='{id}'></a>
+                <a href='#' title='Delete' class='deleteLinks' data-id='{id}'></a>
+            </div>
+        </div>
+    </script>
+
+</div>
 
 <div id="actions">
 	<a id="addLink">+</a>
