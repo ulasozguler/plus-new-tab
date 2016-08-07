@@ -26,6 +26,12 @@ var idInput = document.getElementById("id")
 
 var cardTemplate = document.getElementById('cardTemplate').innerHTML
 
+var optionDefaults = {};
+for (var opt of options) {
+	optionDefaults[opt.name] = opt.default
+}
+
+
 function getForm() {
 	return {
 		id: idInput.value,
@@ -89,16 +95,11 @@ function list() {
 		size++
 	}
 
-	var optionDefaults = {};
-	for(var opt of options) {
-		optionDefaults[opt.name] = opt.default
-	}
-
 	var cardWidth = parseInt(localStorage['cardWidth']) || optionDefaults['cardWidth']
 	var cardMargin = parseInt(localStorage['cardMargin']) || optionDefaults['cardMargin']
 	var colCount = parseInt(localStorage['colCount']) || optionDefaults['colCount']
 	var fitWidth = optionDefaults['fitWidth']
-	if(localStorage.getItem('fitWidth') !== null) {
+	if (localStorage.getItem('fitWidth') !== null) {
 		fitWidth = localStorage['fitWidth'] === 'true'
 	}
 
@@ -121,9 +122,9 @@ function list() {
 
 function init() {
 	// load theme
-	var theme = themes[localStorage['theme'] || 'bluegrey']
-	var isDark = true
-	if(localStorage.getItem('darkColors') !== null) {
+	var theme = themes[localStorage['theme'] || optionDefaults['theme']]
+	var isDark = optionDefaults['darkColors']
+	if (localStorage.getItem('darkColors') !== null) {
 		isDark = localStorage['darkColors'] === 'true'
 	}
 	document.getElementById('themeStyles').innerHTML = "" +
@@ -131,8 +132,16 @@ function init() {
 		"a:hover, .linkContainer:hover { color: " + theme[isDark ? '100' : '800'] + "; } " +
 		"body { background: " + theme[isDark ? '800' : '100'] + "; } " +
 		".card { background: " + theme[isDark ? '700' : '300'] + "; } " +
-		"#linksArea a { margin: " + localStorage['cardMargin'] + "} " +
-		"#linksArea a div.linkContainer { width: " + localStorage['cardWidth'] + " }"
+		"#linksArea a { margin: " + (localStorage['cardMargin'] || optionDefaults['cardMargin']) + "} " +
+		"#linksArea a div.linkContainer { width: " + (localStorage['cardWidth']  || optionDefaults['cardWidth']) + " }"
+
+	// default data
+	if(manager.data.length == 0) {
+		manager.upsert({
+			"name": "This is a guide box, you can delete this and add new ones.",
+			"link": ""
+		})
+	}
 
 	// list
 	list()
