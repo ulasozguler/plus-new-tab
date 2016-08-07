@@ -14,32 +14,49 @@
     .numberField {
         width: 40px;
     }
+    label {
+        width: 100px;
+        height: 25px;
+        display: inline-block;
+        text-align: right;
+        padding-right: 10px;
+    }
+    .optionCol {
+        float: left;
+        width: 33%;
+    }
 </style>
 
 <div id="main">
-    <label for="theme">Theme:</label>
-    <select id="theme"></select>
-    <div class="clear"></div>
+    <div class="optionCol">
+        <label for="theme">Theme:</label>
+        <select id="theme"></select>
+        <div class="clear"></div>
 
-    <label for="darkColors">Dark Colors:</label>
-    <input type="checkbox" id="darkColors">
-    <div class="clear"></div>
+        <label for="darkColors">Dark Colors:</label>
+        <input type="checkbox" id="darkColors">
+        <div class="clear"></div>
+    </div>
 
-    <label for="cardWidth">Card Width:</label>
-    <input type="text" id="cardWidth" class="numberField"> px
-    <div class="clear"></div>
+    <div class="optionCol">
+        <label for="cardWidth">Card Width:</label>
+        <input type="text" id="cardWidth" class="numberField"> px
+        <div class="clear"></div>
 
-    <label for="cardMargin">Card Margin:</label>
-    <input type="text" id="cardMargin" class="numberField"> px
-    <div class="clear"></div>
+        <label for="cardMargin">Card Margin:</label>
+        <input type="text" id="cardMargin" class="numberField"> px
+        <div class="clear"></div>
+    </div>
 
-    <label for="colCount">Column Count:</label>
-    <input type="text" id="colCount" class="numberField">
-    <div class="clear"></div>
+    <div class="optionCol">
+        <label for="colCount">Column Count:</label>
+        <input type="text" id="colCount" class="numberField">
+        <div class="clear"></div>
 
-    <label for="fitWidth">Fit Width:</label>
-    <input type="checkbox" id="fitWidth">
-    <div class="clear"></div>
+        <label for="fitWidth">Fit Width:</label>
+        <input type="checkbox" id="fitWidth">
+        <div class="clear"></div>
+    </div>
 
     <iframe scrolling="no" id="preview" src="newtab.html"></iframe>
 </div>
