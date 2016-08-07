@@ -9,7 +9,7 @@ class DataManager {
 		if(!localStorage[this.app_id]) {
 			this.saveDb()
 		}
-		this.data = eval('(' + localStorage[this.app_id] + ')')
+		this.data = JSON.parse(localStorage[this.app_id])
 	}
 
 	saveDb() {
