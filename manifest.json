@@ -13,4 +13,7 @@
     "page": "options.html",
     "chrome_style": true
   },
+  "icons": {
+    "128": "style/icon.png"
+  }
 }
