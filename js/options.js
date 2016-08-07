@@ -14,7 +14,15 @@ function init() {
 
 	for(var o of options) {
 		var input = document.getElementById(o.name);
-		input.value = localStorage[o.name] || o.default
+		if(typeof o.default === 'boolean') {
+			var val = o.default
+			if(localStorage.getItem(o.name) === null) {
+				val = localStorage[o.name] === 'true'
+			}
+			input.checked = val
+		} else {
+			input.value = localStorage[o.name] || o.default
+		}
 
 		input.addEventListener('change', function(e) {
 			var value = e.target.value;

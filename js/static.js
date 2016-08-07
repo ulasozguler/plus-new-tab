@@ -4,6 +4,10 @@ var options = [
 		default: "Blue-Grey"
 	},
 	{
+		name: "darkColors",
+		default: true
+	},
+	{
 		name: "cardWidth",
 		default: 200
 	},

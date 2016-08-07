@@ -97,7 +97,10 @@ function list() {
 	var cardWidth = localStorage['cardWidth'] || optionDefaults['cardWidth']
 	var cardMargin = localStorage['cardMargin'] || optionDefaults['cardMargin']
 	var colCount = localStorage['colCount'] || optionDefaults['colCount']
-	var fitWidth = localStorage['fitWidth'] === "true" || optionDefaults['fitWidth']
+	var fitWidth = optionDefaults['fitWidth']
+	if(localStorage.getItem('fitWidth') === null) {
+		fitWidth = localStorage['fitWidth'] === 'true'
+	}
 
 	var cardTotalWidth = cardWidth + (cardMargin * 2)
 	var errorMargin = 10
@@ -119,11 +122,15 @@ function list() {
 function init() {
 	// load theme
 	var theme = themes[localStorage['theme'] || 'bluegrey']
+	var isDark = true
+	if(localStorage.getItem('darkColors') !== null) {
+		isDark = localStorage['darkColors'] === 'true'
+	}
 	document.getElementById('themeStyles').innerHTML = "" +
-		"* { color: " + theme['300'] + "; } " +
-		"a:hover, .linkContainer:hover { color: " + theme['100'] + "; } " +
-		"body { background: " + theme['800'] + "; } " +
-		".card { background: " + theme['700'] + "; } " +
+		"* { color: " + theme[isDark ? '300' : '600'] + "; } " +
+		"a:hover, .linkContainer:hover { color: " + theme[isDark ? '100' : '800'] + "; } " +
+		"body { background: " + theme[isDark ? '800' : '100'] + "; } " +
+		".card { background: " + theme[isDark ? '700' : '300'] + "; } " +
 		"#linksArea a { margin: " + localStorage['cardMargin'] + "} " +
 		"#linksArea a div.linkContainer { width: " + localStorage['cardWidth'] + " }"
 
