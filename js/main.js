@@ -94,11 +94,11 @@ function list() {
 		optionDefaults[opt.name] = opt.default
 	}
 
-	var cardWidth = localStorage['cardWidth'] || optionDefaults['cardWidth']
-	var cardMargin = localStorage['cardMargin'] || optionDefaults['cardMargin']
-	var colCount = localStorage['colCount'] || optionDefaults['colCount']
+	var cardWidth = parseInt(localStorage['cardWidth']) || optionDefaults['cardWidth']
+	var cardMargin = parseInt(localStorage['cardMargin']) || optionDefaults['cardMargin']
+	var colCount = parseInt(localStorage['colCount']) || optionDefaults['colCount']
 	var fitWidth = optionDefaults['fitWidth']
-	if(localStorage.getItem('fitWidth') === null) {
+	if(localStorage.getItem('fitWidth') !== null) {
 		fitWidth = localStorage['fitWidth'] === 'true'
 	}
 

@@ -16,7 +16,7 @@ function init() {
 		var input = document.getElementById(o.name);
 		if(typeof o.default === 'boolean') {
 			var val = o.default
-			if(localStorage.getItem(o.name) === null) {
+			if(localStorage.getItem(o.name) !== null) {
 				val = localStorage[o.name] === 'true'
 			}
 			input.checked = val
