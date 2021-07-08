@@ -1,16 +1,18 @@
 <head>
-<title>&#65279;</title>
-<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="style/main.css">
-<style type="text/css" id="themeStyles"></style>
+    <meta charset="UTF-8">
+    <title>&#65279;New Tab</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <style type="text/css" id="themeStyles"></style>
 
 </head>
-<body>
-<div id="linksArea">
 
-    <script id="cardTemplate" type="x-template">
+<body>
+    <div id="linksArea">
+
+        <script id="cardTemplate" type="x-template">
         <div class="card">
-            <div class='linkContainer'>{name}</div>
+            <div class='linkContainer'><img src="chrome://favicon/size/24@1x/{link}"> {name}</div>
             <div class='actionLinks'>
                 <a href='#' title='Edit' class='editLinks' data-id='{id}'></a>
                 <a href='#' title='Delete' class='deleteLinks' data-id='{id}'></a>
@@ -18,23 +20,23 @@
         </div>
     </script>
 
-</div>
+    </div>
 
-<div id="actions">
-	<a id="settings">⚙</a>
-	<a id="addLink">+</a>
-</div>
+    <div id="actions">
+        <a id="settings">⚙</a>
+        <a id="addLink">+</a>
+    </div>
 
-<div id="action">
-	<form id="actionForm">
-		<input type="text" id="name" placeholder="Name">
-		<input type="text" id="link" placeholder="Link">
-		<input type="hidden" id="id">
-		<input type="submit" value="OK">
-	</form>
-</div>
+    <div id="action">
+        <form id="actionForm">
+            <input type="text" id="name" placeholder="Name">
+            <input type="text" id="link" placeholder="Link">
+            <input type="hidden" id="id">
+            <input type="submit" value="OK">
+        </form>
+    </div>
 
-<script type="text/javascript" src="js/dataManager.js"></script>
-<script type="text/javascript" src="js/static.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/dataManager.js"></script>
+    <script type="text/javascript" src="js/static.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>

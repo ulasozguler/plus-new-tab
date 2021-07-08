@@ -8,11 +8,17 @@ body {
 	background-color: #e4e4e3;
 	text-align: center;
 	margin: 0 18px;
+	display: flex;
+    align-items: center;
 }
 
 a {
 	cursor: pointer;
 	text-decoration: none;
+}
+
+input {
+	color: black;
 }
 
 .card {
@@ -45,7 +51,7 @@ a {
 }
 
 #linksArea {
-	padding: 18px 0px 0px;
+	padding: 0;
 	overflow: auto;
 	margin: 0 auto;
 }
@@ -65,6 +71,11 @@ a {
 	padding: 0 15px;
 }
 
+.linkContainer img {
+	margin-bottom: -6px;
+    margin-right: 2px;
+}
+
 .actionLinks {
 	position: absolute;
 	bottom: 2px;
@@ -75,6 +86,9 @@ a {
 #linksArea a:hover .actionLinks {
 	display: block;
 }
+
+#linksArea a .card { opacity: .8; }
+#linksArea a:hover .card { opacity: 1; }
 
 .actionLinks a {
 	padding: 2px 5px;
