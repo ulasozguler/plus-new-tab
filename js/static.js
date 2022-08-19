@@ -26,6 +26,10 @@ var options = [
     {
         name: "iconSize",
         default: 24
+    },
+    {
+        name: "hideText",
+        default: false
     }
 ]
 

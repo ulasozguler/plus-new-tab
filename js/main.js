@@ -92,10 +92,16 @@ function list() {
     var size = 0
     mainArea.innerHTML = ''
     var iconSize = parseInt(localStorage['iconSize']) || optionDefaults['iconSize']
+    var hideText = optionDefaults['hideText']
+    if (localStorage.getItem('hideText') !== null) {
+        hideText = localStorage['hideText'] === 'true'
+    }
     for (var o of manager.list()) {
         o.favicon = getFaviconUrl(o.link, iconSize)
         var a = document.createElement('a')
         a.href = o.link
+        if(hideText)
+            o.name = ''
         a.innerHTML = template(cardTemplate, o)
         mainArea.appendChild(a)
         size++
