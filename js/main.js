@@ -14,6 +14,10 @@ function addEventHandlerToClass(className, eventName, listener) {
     }
 }
 
+function getFaviconUrl(url, size=24) {
+    return `chrome-extension://${chrome.runtime.id}/_favicon/?pageUrl=${encodeURIComponent(url)}&size=` + size;
+}
+
 var manager = new DataManager("user_links")
 
 var mainArea = document.getElementById("linksArea")
@@ -87,7 +91,9 @@ function deleteLinkForm(obj) {
 function list() {
     var size = 0
     mainArea.innerHTML = ''
+    var iconSize = parseInt(localStorage['iconSize']) || optionDefaults['iconSize']
     for (var o of manager.list()) {
+        o.favicon = getFaviconUrl(o.link, iconSize)
         var a = document.createElement('a')
         a.href = o.link
         a.innerHTML = template(cardTemplate, o)

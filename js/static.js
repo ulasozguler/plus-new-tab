@@ -22,6 +22,10 @@ var options = [
     {
         name: "fitWidth",
         default: false
+    },
+    {
+        name: "iconSize",
+        default: 24
     }
 ]
 

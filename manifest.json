@@ -1,21 +1,19 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Plus New Tab",
     "description": "A customizable new tab page.",
     "version": "0.1",
     "permissions": [
         "management",
-        "chrome://favicon/"
+        "favicon"
     ],
     "chrome_url_overrides": {
         "newtab": "newtab.html"
     },
     "options_ui": {
-        "page": "options.html",
-        "chrome_style": true
+        "page": "options.html"
     },
     "icons": {
         "128": "icon.png"
-    },
-    "content_security_policy": "script-src 'self'; object-src 'self'; img-src chrome://favicon;"
+    }
 }
