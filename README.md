@@ -10,7 +10,6 @@ A simple Chrome extension that allows you to put links in your new tab page.
 2. Open extensions page of Chrome.
 3. Drag and drop downloaded folder to extensions page.
 
-## Next
+## TODO
 
-- Update order of links
-- Sync user data to all devices
+- Link reorder mode

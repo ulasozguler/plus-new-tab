@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Plus New Tab",
+  "description": "A customizable new tab page.",
+  "version": "0.1",
+  "permissions": [
+    "management",
+    "favicon",
+    "storage"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "newtab/index.html"
+  },
+  "options_ui": {
+    "page": "options/index.html"
+  },
+  "icons": {
+    "128": "img/icon.png"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "plus-new-tab-ext",
+  "author": "Ulas Ozguler <ulasozguler@gmail.com>",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ulasozguler/plus-new-tab.git"
+  },
+  "homepage": "https://github.com/ulasozguler/plus-new-tab",
+  "license": "GPL-3.0-only",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "wbuild": "vite build --watch"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.1",
+    "@types/chrome": "^0.0.195",
+    "svelte": "^3.49.0",
+    "svelte-webext-stores": "^0.0.12",
+    "vite": "^3.0.7",
+    "vite-plugin-mpa": "^1.1.4"
+  }
+}
