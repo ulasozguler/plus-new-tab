@@ -10,6 +10,7 @@ export const settings = writable({
   fitWidth: false,
   iconSize: 1.6,
   hideText: false,
+  reorderMode: true,
 })
 chromeStorage.storeSync("settings", settings)
 

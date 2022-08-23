@@ -1,4 +1,6 @@
 <script>
+  import { settings } from "@/store"
+
   export let newItem
 
   function openOptionsPage() {
@@ -7,36 +9,47 @@
 </script>
 
 <div id="actions">
-  <a id="settings" on:click={openOptionsPage}>⚙</a>
-  <a id="addLink" on:click={() => newItem({ id: Date.now() })}>+</a>
+  <div title="Open Settings" on:click={openOptionsPage}>
+    <!-- svelte-ignore a11y-missing-attribute -->
+    <img src="/img/setting.png" />
+  </div>
+  <div
+    title={$settings.reorderMode ? "Lock Order" : "Unlock Order"}
+    on:click={() => {
+      $settings.reorderMode = !$settings.reorderMode
+    }}
+  >
+    <!-- svelte-ignore a11y-missing-attribute -->
+    <img src="/img/{$settings.reorderMode ? 'open-' : ''}padlock.png" />
+  </div>
+  <div title="Add" on:click={() => newItem({ id: Date.now() })}>
+    <!-- svelte-ignore a11y-missing-attribute -->
+    <img src="/img/add.png" />
+  </div>
 </div>
 
 <style>
-  a {
+  div {
+    display: inline;
     cursor: pointer;
     text-decoration: none;
     color: var(--text-color);
     opacity: 0.6;
-    font-size: 2em;
+    margin-left: 0.5em;
   }
 
-  #actions a:hover {
+  #actions div:hover {
     opacity: 1;
   }
 
   #actions {
     position: absolute;
-    bottom: 1.3em;
-    right: 1.5em;
+    bottom: 1em;
+    right: 1.3em;
   }
 
-  a#addLink {
-    border: 0.01em solid;
-    border-radius: 1em;
-    padding: 0 0.3em 0.05em;
-  }
-
-  a#settings {
-    margin-right: 0.2em;
+  img {
+    width: 2em;
+    height: 2em;
   }
 </style>

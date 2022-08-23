@@ -1,5 +1,6 @@
 <script>
   import { settings, links } from "@/store"
+  import { flip } from "svelte/animate"
 
   export let editAction
 
@@ -15,22 +16,58 @@
       `/_favicon/?pageUrl=${encodeURIComponent(url)}&size=64`
     )
   }
+
+  // reorder logic
+  let hovering
+
+  function arraymove(arr, fromIndex, toIndex) {
+    var element = arr[fromIndex]
+    arr.splice(fromIndex, 1)
+    arr.splice(toIndex, 0, element)
+  }
+
+  function drop(event, target) {
+    event.dataTransfer.dropEffect = "move"
+    const start = parseInt(event.dataTransfer.getData("text/plain"))
+    arraymove($links, start, target)
+    $links = $links
+    hovering = null
+  }
+
+  function dragstart(event, i) {
+    event.dataTransfer.effectAllowed = "move"
+    event.dataTransfer.dropEffect = "move"
+    event.dataTransfer.setData("text/plain", i)
+  }
 </script>
 
 <div id="linksArea">
-  {#each $links as link}
-    <a href={link.link}>
+  {#each $links as link, index (link.id)}
+    <a
+      href={link.link}
+      draggable={$settings.reorderMode}
+      animate:flip={{ duration: 250 }}
+      on:dragstart={(event) => dragstart(event, index)}
+      on:drop={(event) => drop(event, index)}
+      on:dragover|preventDefault
+      on:dragend={() => (hovering = false)}
+      on:dragenter={() => (hovering = index)}
+    >
       <div class="card">
-        <div class="linkContainer">
-          <img src={getFaviconUrl(link.link)} alt={link.name} />
+        <div class="linkContainer" class:isDropArea={hovering === index}>
+          <img
+            src={getFaviconUrl(link.link)}
+            alt={link.name}
+            draggable="false"
+          />
           {$settings.hideText ? "" : link.name}
         </div>
         <div class="actionLinks">
           <div on:click|preventDefault={() => editAction(link)}>
-            <img alt="Edit" src="/img/edit.svg" />
+            <img alt="Edit" src="/img/edit.svg" draggable="false" />
           </div>
           <div on:click|preventDefault={() => deleteLink(link.id)}>
-            <img alt="Delete" src="/img/delete.svg" />
+            <img alt="Delete" src="/img/delete.svg" draggable="false" />
           </div>
         </div>
       </div>
@@ -79,6 +116,12 @@
     align-items: center;
     overflow: hidden;
     padding: 0 1em;
+    cursor: var(--cursor-mode);
+    box-sizing: border-box;
+  }
+
+  .isDropArea {
+    border: 0.3em solid black;
   }
 
   .linkContainer img {

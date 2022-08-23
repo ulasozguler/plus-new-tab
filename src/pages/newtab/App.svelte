@@ -10,7 +10,6 @@
   $: isDark = $settings.darkColors
 
   let formData = {}
-
   function setFormData(data) {
     formData = data
   }
@@ -26,6 +25,7 @@
 --card-width: {$settings.cardWidth}em;
 --col-num: {$settings.fitWidth ? 'auto-fit' : $settings.colCount};
 --icon-size: {$settings.iconSize}em;
+--cursor-mode: {$settings.reorderMode ? 'move' : 'pointer'};
 "
 >
   <LinksArea editAction={setFormData} />
