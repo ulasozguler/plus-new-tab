@@ -102,31 +102,31 @@
   }
 
   #main {
-    width: 700px;
-    padding: 10px;
+    width: 50em;
+    padding: 1em;
   }
 
   #preview {
     width: 100%;
-    height: 300px;
+    height: 25em;
     border: 0;
   }
 
   .clear {
     clear: both;
-    height: 10px;
+    height: 0.5em;
   }
 
   .numberField {
-    width: 40px;
+    width: 3em;
   }
 
   label {
-    width: 100px;
-    height: 25px;
+    width: 6em;
+    height: 2em;
     display: inline-block;
     text-align: right;
-    padding-right: 10px;
+    padding-right: 0.1em;
   }
 
   .optionCol {
@@ -135,6 +135,6 @@
   }
 
   #theme {
-    width: 60px;
+    width: 5em;
   }
 </style>

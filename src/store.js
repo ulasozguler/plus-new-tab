@@ -5,12 +5,12 @@ export const settings = writable({
   theme: "Blue-Grey",
   darkColors: true,
   cardWidth: 11,
-  cardMargin: 0.3,
+  cardMargin: 0.7,
   colCount: 4,
   fitWidth: false,
   iconSize: 1.6,
   hideText: false,
-  reorderMode: true,
+  isLocked: false,
 })
 chromeStorage.storeSync("settings", settings)
 

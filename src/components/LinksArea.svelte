@@ -2,7 +2,7 @@
   import { settings, links } from "@/store"
   import { flip } from "svelte/animate"
 
-  export let editAction
+  export let setFormData
 
   function deleteLink(linkId) {
     if (confirm("Are you sure?")) {
@@ -25,7 +25,7 @@
   // reorder logic
   let hovering
 
-  function arraymove(arr, fromIndex, toIndex) {
+  function moveElement(arr, fromIndex, toIndex) {
     var element = arr[fromIndex]
     arr.splice(fromIndex, 1)
     arr.splice(toIndex, 0, element)
@@ -34,8 +34,8 @@
   function drop(event, target) {
     event.dataTransfer.dropEffect = "move"
     const start = parseInt(event.dataTransfer.getData("text/plain"))
-    arraymove($links, start, target)
-    $links = $links
+    moveElement($links, start, target)
+    $links = $links // force update store
     hovering = null
   }
 
@@ -50,7 +50,7 @@
   {#each $links as link, index (link.id)}
     <a
       href={addProtocol(link.link)}
-      draggable={$settings.reorderMode}
+      draggable={!$settings.isLocked}
       animate:flip={{ duration: 250 }}
       on:dragstart={(event) => dragstart(event, index)}
       on:drop={(event) => drop(event, index)}
@@ -68,7 +68,7 @@
           {$settings.hideText ? "" : link.name}
         </div>
         <div class="actionLinks">
-          <div on:click|preventDefault={() => editAction(link)}>
+          <div on:click|preventDefault={() => setFormData(link)}>
             <img alt="Edit" src="/img/edit.svg" draggable="false" />
           </div>
           <div on:click|preventDefault={() => deleteLink(link.id)}>
@@ -82,15 +82,8 @@
 
 <style>
   a {
-    cursor: pointer;
     text-decoration: none;
     color: var(--text-color);
-  }
-
-  .card {
-    position: relative;
-    text-align: center;
-    background: var(--card-bg-color);
   }
 
   #linksArea {
@@ -120,8 +113,9 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    padding: 0 1em;
     cursor: var(--cursor-mode);
+
+    padding: 0 1em;
     box-sizing: border-box;
   }
 
@@ -136,6 +130,8 @@
   }
 
   #linksArea a .card {
+    position: relative;
+    background: var(--card-bg-color);
     opacity: 0.8;
   }
 
@@ -144,14 +140,15 @@
   }
 
   .actionLinks {
+    display: none;
     position: absolute;
     bottom: 0.1em;
     right: 0.1em;
-    display: none;
   }
 
   #linksArea a:hover .actionLinks {
     display: flex;
+    gap: 0.11em;
   }
 
   .actionLinks div {
@@ -159,7 +156,6 @@
     background-color: #f4f4f3;
     width: 1.2em;
     height: 1.2em;
-    margin-left: 0.11em;
   }
 
   .actionLinks div:hover {

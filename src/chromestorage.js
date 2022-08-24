@@ -16,7 +16,6 @@ export const set = (key, data) =>
     )
   )
 
-// chrome.storage.sync.clear()
 export const storeSync = (key, store) => {
   get(key).then((data) => {
     // load from chrome storage to svelte store if there is previously saved data
@@ -24,7 +23,6 @@ export const storeSync = (key, store) => {
 
     // copy data to chrome storage every time svelte store is updated
     store.subscribe((value) => {
-      //   if (data !== value)
       set(key, value)
     })
   })

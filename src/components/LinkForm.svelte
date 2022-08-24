@@ -4,13 +4,15 @@
   export let data
 
   function saveData() {
+    if (data.name === undefined) data.name = ""
+
     const index = $links.findIndex((x) => x.id == data.id)
     if (index === -1) {
-      $links.push(data)
-      $links = $links
+      $links = [...$links, data]
     } else {
       $links[index] = data
     }
+
     data = {}
   }
 
@@ -21,31 +23,25 @@
   <div id="action">
     <form id="actionForm" on:submit|preventDefault={saveData}>
       <!-- svelte-ignore a11y-autofocus -->
+      <input type="text" placeholder="Name" bind:value={data.name} autofocus />
+      <input type="text" placeholder="Link" bind:value={data.link} />
+      <input type="hidden" bind:value={data.id} />
       <input
-        type="text"
-        id="name"
-        placeholder="Name"
-        bind:value={data.name}
-        autofocus
+        type="submit"
+        value="OK"
+        disabled={data.link === undefined || data.link === ""}
       />
-      <input type="text" id="link" placeholder="Link" bind:value={data.link} />
-      <input type="hidden" id="id" bind:value={data.id} />
-      <input type="submit" value="OK" />
     </form>
   </div>
 {/if}
 
 <style>
   #action {
-    border: 1px dotted black;
-    padding: 10px;
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 1em;
+    left: 1em;
+    padding: 0.35em;
     background-color: #e4e4e3;
-  }
-
-  #actionForm {
-    margin: 0;
+    border: 0.1em dotted black;
   }
 </style>
