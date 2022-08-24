@@ -17,6 +17,11 @@
     )
   }
 
+  function addProtocol(link) {
+    if (link.indexOf("://") === -1) link = "https://" + link
+    return link
+  }
+
   // reorder logic
   let hovering
 
@@ -44,7 +49,7 @@
 <div id="linksArea">
   {#each $links as link, index (link.id)}
     <a
-      href={link.link}
+      href={addProtocol(link.link)}
       draggable={$settings.reorderMode}
       animate:flip={{ duration: 250 }}
       on:dragstart={(event) => dragstart(event, index)}
