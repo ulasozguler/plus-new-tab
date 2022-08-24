@@ -4,7 +4,6 @@
   "description": "A customizable new tab page.",
   "version": "0.2",
   "permissions": [
-    "management",
     "favicon",
     "storage"
   ],
