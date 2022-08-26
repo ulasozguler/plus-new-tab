@@ -1,11 +1,12 @@
 # Plus New Tab
 
-A Chrome extension that allows you to put links in your new tab page.
+A [Chrome extension](https://chrome.google.com/webstore/detail/plus-new-tab/capadmendafocaabodcnhijjbmiaohne) that allows you to put links in your new tab page.
 
 ![Screenshot](https://i.imgur.com/6mfVDyo.png)
 
-## Installation
+## Development
 
-1. Download/checkout this repo.
-2. Open extensions page of Chrome.
-3. Drag and drop downloaded folder to extensions page.
+- `npm install`
+- `npm run wbuild`
+- Open extensions page of Chrome.
+- Drag and drop `dist` folder to extensions page.
