@@ -90,18 +90,22 @@
     font-family: "Roboto", sans-serif;
     font-size: 1.3em;
     background: var(--bg-color);
-    height: 100vh;
-    width: 100vw;
-    overflow-x: hidden;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    min-height: 100vh;
+    overflow: hidden;
 
     display: grid;
     grid-template-columns: repeat(var(--col-num), var(--card-width));
-
-    align-content: flex-start;
-    justify-content: center;
     grid-gap: var(--card-margin);
 
-    padding: 15vh 2em 0;
+    align-content: center;
+    justify-content: center;
+
+    padding: 0 2em;
     box-sizing: border-box;
   }
 
